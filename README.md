@@ -103,8 +103,11 @@ Alternatively, one continuous line with a handover can be written with `periods`
 ## Development
 
 The plugin is plain JavaScript with no build step: `main.js`, `styles.css` and `manifest.json` are the plugin.
-To release a new version, set `version` in `manifest.json`, create a GitHub release whose tag is exactly that
-version and attach the three files.
+To release a new version, set `version` in `manifest.json`, commit, then push a tag that is exactly that version
+(for example `git tag 0.3.1 && git push origin 0.3.1`). The workflow in `.github/workflows/release.yml` creates the
+GitHub release with the three files and signs them with GitHub artifact attestations.
+
+To verify a downloaded file: `gh attestation verify main.js -R kavodsky/habit-charts`.
 
 ## License
 

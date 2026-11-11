@@ -107,8 +107,11 @@ Alternativ lässt sich eine durchgehende Linie mit Übergabe über `periods` sch
 ## Entwicklung
 
 Das Plugin ist schlichtes JavaScript ohne Build-Schritt: `main.js`, `styles.css` und `manifest.json` sind das Plugin.
-Für eine neue Version setze `version` in `manifest.json`, erstelle ein GitHub-Release, dessen Tag genau dieser
-Version entspricht, und hänge die drei Dateien an.
+Für eine neue Version setze `version` in `manifest.json`, committe und pushe dann einen Tag, der genau dieser Version
+entspricht (zum Beispiel `git tag 0.3.1 && git push origin 0.3.1`). Der Workflow in `.github/workflows/release.yml`
+erstellt das GitHub-Release mit den drei Dateien und signiert sie mit GitHub Artifact Attestations.
+
+Eine heruntergeladene Datei prüfst du mit: `gh attestation verify main.js -R kavodsky/habit-charts`.
 
 ## Lizenz
 

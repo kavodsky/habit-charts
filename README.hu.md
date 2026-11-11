@@ -107,8 +107,12 @@ Egy folytonos, átadással tarkított vonalat a `periods` kulccsal is meg lehet 
 ## Fejlesztés
 
 A bővítmény egyszerű JavaScript, build lépés nélkül: a `main.js`, a `styles.css` és a `manifest.json` maga a
-bővítmény. Új verzió kiadásához állítsd át a `version` értékét a `manifest.json` fájlban, hozz létre egy GitHub-kiadást,
-amelynek a címkéje pontosan ez a verzió, és csatold a három fájlt.
+bővítmény. Új verzió kiadásához állítsd át a `version` értékét a `manifest.json` fájlban, commitold, majd pusholj egy
+pontosan ezzel a verzióval egyező címkét (például `git tag 0.3.1 && git push origin 0.3.1`). A
+`.github/workflows/release.yml` workflow létrehozza a GitHub-kiadást a három fájllal, és GitHub artifact
+attestation-nel aláírja őket.
+
+Letöltött fájlt így ellenőrizhetsz: `gh attestation verify main.js -R kavodsky/habit-charts`.
 
 ## Licenc
 

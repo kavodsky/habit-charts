@@ -104,8 +104,11 @@ groups:
 ## Розробка
 
 Плагін — звичайний JavaScript без етапу збірки: плагіном є `main.js`, `styles.css` і `manifest.json`. Щоб випустити
-нову версію, змініть `version` у `manifest.json`, створіть реліз на GitHub із тегом, що точно дорівнює цій версії,
-і прикріпіть ці три файли.
+нову версію, змініть `version` у `manifest.json`, закомітьте, а тоді запуште тег, що точно дорівнює цій версії
+(наприклад, `git tag 0.3.1 && git push origin 0.3.1`). Workflow у `.github/workflows/release.yml` створює реліз на
+GitHub із трьома файлами й підписує їх атестаціями артефактів GitHub.
+
+Завантажений файл можна перевірити так: `gh attestation verify main.js -R kavodsky/habit-charts`.
 
 ## Ліцензія
 
